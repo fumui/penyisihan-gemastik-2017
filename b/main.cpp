@@ -15,6 +15,13 @@ void splitToFloatVector(std::string s, std::vector<float> &out)
         out.push_back(parsed);
     }
 }
+void printPNTimes(int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        std::cout << "P";
+    }
+}
 void printCombination()
 {
     std::string input;
@@ -28,10 +35,7 @@ void printCombination()
             std::cout << "mustahil\n";
             return;
         }
-        for (int i = 0; i < in[1]; i++)
-        {
-            std::cout << "P";
-        }
+        printPNTimes(in[1]);
         std::cout << "\n";
         return;
     }
@@ -42,18 +46,14 @@ void printCombination()
     }
     int modP = (int)in[1] % (int)in[0],
         commonP = ceil(in[1] / in[0]);
-    std::string p = "";
-    for (int i = 0; i < commonP; i++)
-    {
-        p += "P";
-    }
 
     for (int i = 0; i < in[0]; i++)
     {
-        std::cout << "L" + p;
+        std::cout << "L";
+        printPNTimes(commonP);
         if (i < modP)
         {
-            std::cout << "P";
+            printPNTimes(1);
         }
     }
     std::cout << "\n";
